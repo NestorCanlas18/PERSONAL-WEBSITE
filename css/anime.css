@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: poppins;
+    width: 100%;
+    position: relative;
+}
+:root {
+    --accent1: #FCA8A8;
+    --accent2: #F02B3F; 
+}
+/*NAV BAR*/
+nav{
+    font-size: 20px;
+    display: flex;
+    top:0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(0.2em);
+    z-index: 999;
+}
+nav > img{
+    width: 1.5em;
+    margin-left: 0.5em;
+}
+aside{
+    display: flex;
+    margin-right: 0.5em;
+    align-items: center;
+    gap: 0.3em;
+}
+aside h1{
+    font-weight: 200;
+    font-size: 1.2em;
+    font-family: bebas neue;
+    line-height: .8;
+    margin-top: 0.1em;
+}
+.burger{
+    width: 1.7em;
+    height: 1.7em;
+    position: relative;
+}
+.burger span{
+    width: 100%;
+    height: 0.1em;
+    background-color: white;
+    display: block;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+.burger span:nth-child(1){
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.burger span:nth-child(2){
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -25%);
+}
+.burger span:nth-child(3){
+    left: 100%;
+    top: 75%;
+    transform: translate(-100%, -75%);
+    width: 70%;
+}
+.burger.active span:nth-child(2){
+    left: 0;
+    top: 50%;
+    transform: rotate(45deg);
+    background-color: red;
+    width: 70%;
+}
+.burger.active span:nth-child(1){
+    width: 0;
+}
+.burger.active span:nth-child(3){
+    left: 0;
+    top: 50%;
+    transform: rotate(-45deg);
+    width: 70%;
+    background-color: red;
+}
+.menu{
+    font-size: 20px;
+    height: 100vh;
+    width: 25em;
+    position: fixed;
+    top: 0;
+    right: -30em;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    color: black;
+    transition: 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.menu h1{
+    font-size: 3em;
+    margin-left: 0.5em;
+}
+.menu hr{
+    margin: 0em 0em 1em 1.5em;
+    width: 90%;
+    border: none;
+    background-color: black;
+    height: 0.1em;
+}
+
+.menu ul a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    margin-left: 1em;
+    font-size: 1.8em;
+    font-weight: bold;
+    border-bottom: 0.1em solid black;
+	transition: 0.3s ease-in-out;
+}
+.menu ul a:hover{
+    color: var(--accent1);
+}
+.menu ul a:nth-child(6),
+.menu ul a:nth-child(7){
+    color: white;
+    background-color: var(--accent1);
+    padding: 0em 0.5em;
+    border-radius: 0.2em;
+    color: color;
+    margin-top: 0.5em;
+}
+.menu ul a:nth-child(6):hover,
+.menu ul a:nth-child(7):hover{
+    color: var(--accent2);
+}
+.menu ul{
+    list-style-type: none;
+}
+.menu > a{
+    text-decoration: none;
+    color:  white;
+    font-size: 1.8em;
+    padding: 0.3em 1em;
+    background-color: var(--accent2);
+    margin: auto auto 20% auto;
+    line-height: 1;
+    border-radius: 0.2em;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+.menu  > a:hover{
+    color: var(--accent1);
+    border-color: var(--accent1);
+}
+.menu.active{
+    right: 0;
+}
+/*NAV BAR*/
+/*INTRO SECTION*/
+.intro-section{
+    font-size: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro-img{
+    position: relative;
+}
+.intro-img > img{
+    position: relative;
+    width: 30vw;
+}
+.intro-section h1{
+    position: absolute;
+    font-size: 15vw;
+    transition: 0.3s ease-in-out;
+    animation: h1galaw 4s ease-in-out infinite;
+}
+.intro-img::after{
+    content: '';
+    width: 200%;
+    height: 0.2em;
+    background-color: var(--accent1);
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.intro-section *:nth-child(1){
+    color: var(--accent1);
+}
+.intro-section *:nth-child(3){
+    -webkit-text-stroke: 0.01em var(--accent1);
+    color: transparent;
+}
+@keyframes h1galaw {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-0.09em);
+    }
+    100%{
+        transform:translateY(0);
+    }
+ }
+ @keyframes bato1 {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-3em);
+    }
+    100%{
+        transform:translateY(0);
+    }
+ }
+ .stone{
+    position: absolute;
+    width: 100%;
+    height: 20vw;
+ }
+ .stone img{
+    filter: brightness(200%);
+    position: absolute;
+ }
+ .stone img:nth-child(1){
+    left: 60%;
+    top: 60%;
+    width: 12vw;
+    animation: bato1 6s ease-in-out infinite;
+ }
+ .stone img:nth-child(2){
+    left: 20%;
+    top: 10%;
+    width: 13vw;
+    animation: bato1 4s ease-in-out infinite;
+    z-index: -1;
+ }
+ .stone img:nth-child(3){
+    left: 55%;
+    top: -40%;
+    z-index: -1;
+    width: 5vw;
+    animation: bato1 5s ease-in-out infinite;
+ }
+ .stone img:nth-child(4){
+    left: 60%;
+    top: -10%;
+    width: 8vw;
+    animation: bato1 3s ease-in-out infinite;
+ }
+ .stone img:nth-child(5){
+    left: 40%;
+    top: 90%;
+    width: 8vw;
+    animation: bato1 7s ease-in-out infinite;
+ }
+ .stone img:nth-child(6){
+    left: 35%;
+    top: 30%;
+    width: 5vw;
+    animation: bato1 5s ease-in-out infinite;
+ }
+ .stone img:nth-child(7){
+    left: 40%;
+    top: -40%;
+    width: 5vw;
+    animation: bato1 10s ease-in-out infinite;
+ }
+/*INTRO SECTION*/
+/*TOP ANIME*/
+.top-anime{
+    font-size: 20px;
+    background-image: url('../media/images/hobbies/anime/topanime.png');
+    background-size: cover;
+    background-position: center;
+    height: 25em;
+    width: 75em;
+    display: flex;
+    justify-content: right;
+    border: 0.05em solid white;
+}
+.sub-top{
+    background-color: rgba(0, 0, 0, 20%);
+    backdrop-filter: blur(0.5em);
+    width: 40%;
+    height: 100%;
+    border-left: 0.05em solid white;
+}
+.main-top{
+    font-size: 20px;
+    width: max-content;
+    margin: 5em auto 20em auto;
+}
+.main-top > h1{
+    line-height: 1;
+    font-size: 3em;
+    border-bottom: 0.1em solid var(--accent1);
+    width: max-content;
+    margin-bottom: 0.5em;
+}
+.main-top h1 span{
+    color: var(--accent1);
+}
+.top-info{  
+    margin: 1em;
+}
+.top-info p:nth-child(2){
+    margin-bottom: 0.8em;
+}
+.top-info h1{
+    font-size: 2.5em;
+}
+.top-rate{
+    display: flex;
+    gap: 0.1em;
+    align-items: center;
+}
+.top-rate p:nth-child(1){
+    font-weight: bold;
+}
+.top-rate img{
+    width: 1.2em;
+    margin-bottom: 0.1em;
+}
+.top-tag{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.8em;
+    gap: 0.2em;   
+}
+.top-tag span{
+    background-color:rgba(0, 0, 0, 50%);
+    border: 0.08em solid white;
+    padding: 0em 0.5em;
+}
+.top-hidden{
+    width: 50em;
+    font-size: 20px;
+    display: none;
+}
+.top-hidden span{
+    background-color:rgba(255, 255, 255, 20%);
+    border: 0.1em solid rgb(255, 255, 255);
+    padding: 0em 0.5em;
+}
+.top-hidden h1{
+    margin-top: 1em;
+    font-size: 3em;
+}
+.top-hidden p:nth-child(2){
+   margin-bottom: 0.8em;
+}
+/*TOP ANIME*/
+/*PICKS*/
+.anime-pick{
+    font-size: 20px;
+    width: 90%;
+    margin: 3em auto;
+}
+.anime-pick hr{
+    border: none;
+    height: 0.1em;
+    width: 100%;
+    background-color: white;
+}
+.anime-pick h1{
+    font-size: 3em;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 0.05em solid var(--accent1);
+    width: max-content;
+}
+.anime-pick h1 span{
+    color: var(--accent1);
+}
+.pick-grid{
+    font-size: 20px;
+    justify-content: center;
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 13.2em);
+    gap: 3em 1em;
+    padding: 2em 0em;
+}
+.pick-grid div{
+    width: 100%;
+}
+.pick-grid > div > p{
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1;
+    text-transform: uppercase;
+    max-width: 100%;
+    word-wrap: break-word;
+    height: 3.5ch;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+.pick-grid > div > img{
+    border: 0.1em solid white;
+    width: 13.2em;
+}
+.pick-rate{
+    display: flex;
+    gap:0.1em;
+    align-items: center;
+    margin-bottom: 0.2em;
+    border-radius: 0.1em;
+    padding:0.2em;
+    background-color: var(--accent2);
+}
+.pick-rate h2{
+    font-size: 1em;
+    font-weight: 300;
+}
+.pick-rate img{
+    width: 1em;
+}
+.pick-rate p{
+    line-height: 1;
+    font-weight: 200;
+}
+.pick-genre{
+    height: 2.2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    margin-top: 0.5em;   
+}
+.pick-genre span{
+    padding: 0em 0.5em;
+    border: 0.05em solid white;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    height: max-content;
+}
+/*PICKS*/
+/*footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 10%);
+    border: 0.05em solid white;
+    color: white;
+    padding: 1em 0em;
+}
+.foot-grid{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    padding: 0em 3em;
+}
+.foot-social,
+.foot-contact{
+    width: max-content;
+    font-size: 0.8em;
+}
+footer h1{
+    font-size: 1.5em; 
+    line-height: 0.9; 
+    margin-bottom: 0.5em;
+}
+footer h3{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.2em;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+footer ul{
+    list-style-type: none; 
+    margin-bottom: 0.5em; 
+}
+.foot-social img{
+    width: 2em;
+    transition: 0.3s ease-in-out;
+}
+.foot-social ul li{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.foot-contact ul li{
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+.foot-contact img{
+    width: 1em;
+}
+.foot-contact a:hover{
+    color: var(--accent1);
+}
+.foot-social a img:hover{
+    transform: translateY(-0.2em);
+}
+/*footer*/
+/*SCROLL ANIM*/
+.epal{
+    opacity: 0;
+    transition: 1s all;
+    filter: blur(5px);
+    transform: translateX(-100%);
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0);
+}
+.epal1{
+    opacity: 0;
+    transition: 2s all;
+}
+.show1{
+    opacity: 1;
+}
+.epal2{
+    opacity: 0;
+    transition: 1s all;
+    filter: blur(5px);
+    transform: translatey(100%);
+}
+.show2{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+.epal3{
+    opacity: 0;
+    transition: 1s all;
+    filter: blur(5px);
+    transform: translateX(-100%);
+}
+.show3{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+/*SCROLL ANIM*/
+/*SCROLL custom*/
+.sub-top{
+    transition-delay: .7s;
+}
+/*SCROLL custom*/
+/*INTRO-SECTION*/
+@media (max-width:1500px){
+    .intro-section{
+        font-size: 25px;
+    }
+
+    .intro-img img{
+        width: 35vw;
+    }
+    .intro-section h1{
+        font-size: 25vw;
+    }
+     .stone img:nth-child(1){
+        width: 14vw;
+     }
+     .stone img:nth-child(2){
+        left: 10%;
+        top: -20%;
+        width: 15vw;
+        z-index: -1;
+     }
+     .stone img:nth-child(3){
+        left: 60%;
+        top: -40%;
+        z-index: -1;
+        width: 5.83vw;
+     }
+     .stone img:nth-child(4){
+        left: 70%;
+        top: -10%;
+        width: 9.33vw;
+     }
+     .stone img:nth-child(5){
+        left: 35%;
+        top: 90%;
+        width: 9.33vw;
+     }
+     .stone img:nth-child(6){
+        left: 30%;
+        width: 5.83vw;  
+     }
+     .stone img:nth-child(7){
+        left: 35%;
+        width: 5.83vw;
+     }
+}
+@media (max-width:1100px){
+    .intro-section{
+        font-size: 20px;
+    }
+}
+@media (max-width:770px){
+    .intro-section{
+        font-size: 15px;
+    }
+}
+@media (max-width:550px){
+    .intro-section{
+        font-size: 10px;
+    }
+}
+@media (max-width:375px){
+    .intro-section{
+        font-size: 8px;
+    }
+}
+/*INTRO-SECTION*/
+/*nav media query*/
+@media (min-width:2560px){
+    nav{
+        font-size: 40px;
+    }
+    .menu{
+        margin-top: 80px;
+        font-size: 20px;
+    }
+}
+@media (max-width:900px){
+    .menu{
+        font-size: 15px;
+    }
+}
+@media (max-width:700px){
+    .menu > a{
+        margin: 0.5em 0 0 0.95em;
+    }
+}
+@media (max-width:500px){
+    .menu{
+        font-size: 14px;
+    }
+}
+@media (max-width:400px){
+    .menu{
+        font-size: 12px;
+    }
+}
+/*nav media query*/
+
+/*nav media query*/
+/*footer media query*/
+@media (min-width: 2560px){
+    footer{
+        font-size: 26.6px;
+    }
+}
+@media (min-width: 3840px){
+    footer{
+        font-size: 40px;
+    }
+}
+@media (max-width:440px){
+    .foot-grid{
+        font-size: 15px;
+    }
+}
+/*footer media query*/
+/*ALL query*/
+@media (min-width: 2560px){
+    .pick-grid,
+    .anime-pick,
+    .main-top,
+    .top-anime{
+        font-size: 26.67px;
+    }
+}
+@media (min-width: 3840px){
+    .pick-grid,
+    .anime-pick,
+    .main-top,
+    .top-anime{
+        font-size: 40px;
+    }
+}
+@media (max-width:1650px){
+    .main-top,
+    .top-anime{
+        font-size: 15px;
+    }
+}
+@media (max-width:1500px){
+    .pick-grid{
+        font-size: 17px; 
+    }
+}
+@media (max-width:1250px){
+    .main-top,
+    .top-anime{
+        font-size: 13px;
+    }
+    .pick-grid{
+        font-size: 15px; 
+    }
+}
+@media (max-width:1100px){
+    .main-top,
+    .top-anime{
+        font-size: 10px;
+    }
+    .pick-grid{
+        font-size: 13px; 
+    }
+    .anime-pick{
+        font-size: 15px;
+    }
+}
+@media (max-width:1060px){
+    .main-top{
+        font-size: 10px;  
+    }
+}
+@media (max-width:1020px){
+    .pick-genre{
+        font-size: 14px;
+    }
+    .anime-pick{
+        font-size: 10px;
+    }
+    .pick-grid{
+        font-size: 11px;
+    }
+}
+@media (max-width:860px){
+    .anime-pick{
+        font-size: 10px;
+    }
+    .pick-grid{
+        grid-template-columns: repeat(4, 13.2em);  
+    }
+}
+@media (max-width:830px){
+    .main-top,
+    .top-anime{
+        font-size: 8px;
+    }
+}
+@media (max-width:700px){
+    .main-top{
+        font-size: 6px !important;    
+    }
+    .sub-top{
+        display: none;
+    }
+    .top-anime{
+        font-size: 6px;
+    }
+    .top-hidden{
+        display: block;
+        font-size: 7px;
+    }
+    .anime-pick{
+        font-size: 10px;
+    }
+    .pick-grid{
+        grid-template-columns: repeat(3, 13.2em);  
+    }
+}
+@media (max-width:550px){
+    .main-top{
+        font-size: 5px;  
+    }
+    .anime-pick{
+        font-size: 8px;
+    }
+    .pick-grid{
+       font-size: 10px; 
+    }
+}
+@media (max-width:500px){
+    .main-top,
+    .top-anime{
+        font-size: 5px;
+    }
+    .top-hidden{
+        font-size: 6px;
+    }
+}
+@media (max-width:475px){
+    .anime-pick{
+        font-size: 8px;
+    }
+    .pick-genre{
+        font-size: 13.5px;
+    }
+    .pick-grid{
+       font-size: 13.5px; 
+       grid-template-columns: repeat(2, 13.2em);  
+    }
+}
+@media (max-width:415px){
+    .main-top,
+    .top-anime{
+        font-size: 4px;
+    }
+    .top-hidden{
+        font-size: 5px;
+    }
+    .pick-genre{
+        font-size: 10px;
+    }
+    .pick-grid{
+       font-size: 10px; 
+       grid-template-columns: repeat(2, 13.2em);  
+    }
+}
+@media (max-width:400px){
+    .main-top{
+       font-size: 8px; 
+    }
+}
+@media (max-width:330px){
+    .main-top,
+    .top-anime{
+        font-size: 3.5px;
+    }
+    .top-hidden{
+        font-size: 4.5px;
+    }
+}
+/*ALL query*/
